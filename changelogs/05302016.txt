@@ -1,0 +1,7 @@
+Changelog for May 30, 2016
+
+The ATmega16A works with the LCD Hello world program in the bobuino pinout configuration. The reason
+for the failure of the standard pinout remains unknown. The chip works best when programmed at 1 MHz 
+the internal crystal.
+
+The SD library doesn't work. The readWrite example doesn't write text to a file. 
