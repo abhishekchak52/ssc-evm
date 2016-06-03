@@ -1,0 +1,16 @@
+Changelog for June 3, 2016
+
+Development has been started using the Arduino Uno as the base device.
+If nothing else can be done, the ATmega328 will be used as the chip for the project.
+The EVM at this time is concieved to have a 16x2 LCD display, an SD card module and
+a keypad alongside the enable switch. 
+
+The LCD module uses 6 data lines, the SD card uses 4 and the keypad uses 8. This takes up 18 
+of the 20 GPIO pins for the 28 PDIP ATmega328 which is at the heart of the Arduino Uno.
+Of the two remaining data lines, one will be used for a pushbutton which will be used to switch
+the machine into voting mode. The other line remains free as of now.
+
+The alternative to this design would use switches instead of the keypad for the ease of use.
+Of course this has the obvious drawbacks of limiting the flexibility of the machine. 
+In that case, there can be at the most 9 pushbuttons which will be used to select a candidate,
+while the last remaining data line acts as the enable switch.
