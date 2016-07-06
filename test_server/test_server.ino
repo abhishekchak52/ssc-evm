@@ -30,6 +30,9 @@ char enabler;
 
 void loop() 
 {
+    //check is there is anything on the serial line
+    if(Serial.available())
+      lcd.write(Serial.readString().c_str());
 //  lcd.write(Serial.readString().c_str());
 //  delay(1000);
 //  lcd.clear();
@@ -37,7 +40,6 @@ void loop()
 //  while(!key){
     key = customKeypad.getKey();
     if(key){
-      lcd.write(key);
       Serial.print(key);
 //    }
     
