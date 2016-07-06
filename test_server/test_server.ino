@@ -25,26 +25,32 @@ lcd.begin(16,2);
 
 }
 String message;
-bool enabled = false;
-char enabler;
-
+char key;
 void loop() 
 {
-    //check is there is anything on the serial line
-    if(Serial.available())
-      lcd.write(Serial.readString().c_str());
-//  lcd.write(Serial.readString().c_str());
-//  delay(1000);
-//  lcd.clear();
-  char key;
-//  while(!key){
-    key = customKeypad.getKey();
-    if(key){
-      Serial.print(key);
-//    }
+  while(!Serial.find("enable")){
+    lcd.clear();
+    lcd.write("Waiting for enable");
     
   }
-  
+      lcd.clear();
+      lcd.write("Enabled");
+      while(message.length() <= 4)
+      {    
+            key = customKeypad.getKey();
+            if(key)
+            {
+               message.concat(key);
+               lcd.clear();
+               lcd.write(message.c_str());
+            }
+            if(message.length() == 4)
+            {
+                Serial.print(message.c_str());
+                message = "";
+                break;
+            }
+      }
 }
 
 
