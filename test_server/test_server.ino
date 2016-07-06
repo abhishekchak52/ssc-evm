@@ -35,19 +35,22 @@ void loop()
   }
       lcd.clear();
       lcd.write("Enabled");
-  
-//    key = customKeypad.getKey();
-//    if(key){
-//       message.concat(key);
-//       lcd.clear();
-//       lcd.write(message.c_str());
-//    }
-//    if(message.length() == 4)
-//     {
-//        Serial.print(message.c_str());
-//        message = "";
-//     }
-  
+      while(message.length() <= 4)
+      {    
+            key = customKeypad.getKey();
+            if(key)
+            {
+               message.concat(key);
+               lcd.clear();
+               lcd.write(message.c_str());
+            }
+            if(message.length() == 4)
+            {
+                Serial.print(message.c_str());
+                message = "";
+                break;
+            }
+      }
 }
 
 

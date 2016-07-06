@@ -11,14 +11,19 @@ baudrate = 9600
 def server():
     """The server part of the script. Responsible for the actual communication during voting"""
     # Open the serial port
-
-    ser = serial.Serial(port, baudrate)
+    while True:
+        ser = serial.Serial(port, baudrate)
     # Print welcome message
-    if raw_input("Send enable?(y/n)") == "y":
-        ser.write("enable")
-#    while True:
-#        if ser.in_waiting >= 4:
-#            print ser.read(4)
+        if raw_input("Send enable?(y/n)") == "y":
+            ser.write("enable")
+        else:
+            sys.exit(0)
+
+    # wait for data
+        while True:
+            if ser.in_waiting >= 4:
+                print ser.read(4)
+                break
 
 
 def connect():
