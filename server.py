@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 bdaddr = "98:D3:31:90:71:B1"
-port = "/dev/rfcomm3"
+port = "/dev/rfcomm4"
 baudrate = 9600
 def server():
     """The server part of the script. Responsible for the actual communication during voting"""
@@ -14,7 +14,7 @@ def server():
     #Print welcome message
     print "Serial"
     while True:
-	if ser.in_waiting == 4:
+	if ser.in_waiting >= 4:
 		print ser.read(4)
 
     
