@@ -40,10 +40,17 @@ void loop()
             key = customKeypad.getKey();
             if(key)
             {
+              if(key == 'C')
+              {
+                message = "";
+                lcd.clear();
+                continue;
+              }
                message.concat(key);
                lcd.clear();
                lcd.write(message.c_str());
             }
+            
             if(message.length() == 4)
             {
                 Serial.print(message.c_str());
