@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 bdaddr = "98:D3:31:90:71:B1"
-port = "/dev/rfcomm2"
+port = "COM11"
 baudrate = 9600
 
 
